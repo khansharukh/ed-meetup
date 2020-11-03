@@ -16,4 +16,6 @@ use App\Http\Controllers\ParticipantsController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('participants', [ParticipantsController::class, 'fetch_participants']);
+Route::get('participants', [ParticipantsController::class, 'read']);
+Route::post('participants', [ParticipantsController::class, 'store']);
+Route::put('participants/{id}', [ParticipantsController::class, 'update']);
