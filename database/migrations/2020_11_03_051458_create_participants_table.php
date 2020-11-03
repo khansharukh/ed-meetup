@@ -15,6 +15,13 @@ class CreateParticipantsTable extends Migration
     {
         Schema::create('participants', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->integer('age');
+            $table->string('dob');
+            $table->enum('profession', ['Employed', 'Student']);
+            $table->string('locality');
+            $table->enum('guests', [0, 1, 2])->default(0);
+            $table->string('address');
             $table->timestamps();
         });
     }

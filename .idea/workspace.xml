@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0003125-27cb-475c-b06b-d4bb6504a66f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Participants.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Participants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_11_03_051458_create_participants_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_11_03_051458_create_participants_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +165,7 @@
       <option name="presentableId" value="Default" />
       <updated>1604379413561</updated>
       <workItem from="1604379416636" duration="905000" />
-      <workItem from="1604380472018" duration="234000" />
+      <workItem from="1604380472018" duration="505000" />
     </task>
     <servers />
   </component>
@@ -176,5 +177,9 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="337" y="164" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1604380472930" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1604381161320">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1604381161320" />
   </component>
 </project>
