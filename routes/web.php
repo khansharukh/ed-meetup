@@ -20,6 +20,4 @@ Route::get('participants', [ParticipantsController::class, 'read']);
 Route::post('participants', [ParticipantsController::class, 'store']);
 Route::put('participants/{id}', [ParticipantsController::class, 'update']);
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [ParticipantsController::class, 'dashboard'])->name('dashboard');

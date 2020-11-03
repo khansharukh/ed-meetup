@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Participants;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ParticipantsController extends Controller
 {
@@ -15,7 +16,7 @@ class ParticipantsController extends Controller
      */
     public function read()
     {
-        $participants = Participants::all();
+        $participants = DB::table('participants')->simplePaginate(10);
         return response()->json([
             "data" => $participants
         ], 200);
@@ -99,5 +100,9 @@ class ParticipantsController extends Controller
     }
     public function check_guests($g) {
         return $g > 2 ? false : true;
+    }
+    public function dashboard() {
+        $participants = DB::table('participants')->paginate(10);
+        return view('dashboard', ['participants' => $participants]);
     }
 }

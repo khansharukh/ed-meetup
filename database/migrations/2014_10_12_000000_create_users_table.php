@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreateUsersTable extends Migration
@@ -24,6 +25,14 @@ class CreateUsersTable extends Migration
             $table->text('profile_photo_path')->nullable();
             $table->timestamps();
         });
+
+        DB::table('users')->insert(
+            array(
+                'name' => 'Admin Account',
+                'email' => 'admin@laravel.com',
+                'password' => '$2y$10$.nvJ0nGMjnn9WVFIacqzXujeuES7o3tzyGw34Cb8Bl.SKF02JFP82' // admin@123
+            )
+        );
     }
 
     /**
