@@ -82,9 +82,9 @@ class ParticipantsController extends Controller
             $participant->name = !empty($request->name) ? $request->name : $participant->name;
             $participant->age = !empty($request->age) ? $request->age : $participant->age;
             $participant->dob = !empty($request->dob) ? $request->dob : $participant->dob;
-            $participant->profession = !empty($request->profession) ? $request->profession : $participant->profession;
+            $participant->profession = !empty($profession) ? $profession : $participant->profession;
             $participant->locality = !empty($request->locality) ? $request->locality : $participant->locality;
-            $participant->guests = !empty($request->guests) ? $request->guests : $participant->guests;
+            $participant->guests = !empty($guests) ? $guests : $participant->guests;
             $participant->address = !empty($request->address) ? $request->address : $participant->address;
             $participant->save();
 
