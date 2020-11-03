@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ParticipantsController extends Controller
 {
+    private $_profession = ['Student', 'Employed'];
     /**
      * Display a listing of the resource.
      *
@@ -28,13 +29,25 @@ class ParticipantsController extends Controller
      */
     public function store(Request $request)
     {
+        $guests = $request->guests;
+        if (!$this->check_guests($guests)) {
+            return response()->json([
+                "message" => $guests." are not allowed. You cannot have more than 2 guests"
+            ], 200);
+        }
+        $profession = $request->profession;
+        if (!in_array($profession, $this->_profession)) {
+            return response()->json([
+                "message" => $profession . " is not allowed to meet, only Student and Employee can join"
+            ], 200);
+        }
         $participant = new Participants;
         $participant->name = $request->name;
         $participant->age = $request->age;
         $participant->dob = $request->dob;
-        $participant->profession = $request->profession;
+        $participant->profession = $profession;
         $participant->locality = $request->locality;
-        $participant->guests = $request->guests;
+        $participant->guests = $guests;
         $participant->address = $request->address;
         $participant->save();
 
@@ -52,6 +65,18 @@ class ParticipantsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $guests = $request->guests;
+        if (!$this->check_guests($guests)) {
+            return response()->json([
+                "message" => $guests." are not allowed. You cannot have more than 2 guests"
+            ], 200);
+        }
+        $profession = $request->profession;
+        if (!in_array($profession, $this->_profession)) {
+            return response()->json([
+                "message" => $profession . " is not allowed to meet, only Student and Employee can join"
+            ], 200);
+        }
         if (Participants::where('id', $id)->exists()) {
             $participant = Participants::find($id);
             $participant->name = !empty($request->name) ? $request->name : $participant->name;
@@ -71,5 +96,8 @@ class ParticipantsController extends Controller
                 "message" => "Please make sure the id is correct"
             ], 404);
         }
+    }
+    public function check_guests($g) {
+        return $g > 2 ? false : true;
     }
 }
