@@ -9,22 +9,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <div class="participants-panel">
-                    <p>Participants</p>
+                    <h2>Participants</h2>
                     @if($participants)
                         <form method="GET" action="{{ route('dashboard') }}">
                             @csrf
                             <div class="mt-4">
-                                <label class="block font-medium text-sm text-gray-700" for="search_key">
-                                    Search
-                                </label>
-                                <input class="form-input rounded-md shadow-sm block mt-1 w-full" id="search_key"
+                                <input class="form-input rounded-md shadow-sm block mt-1 meet-input" id="search_key"
                                        type="text" name="key" value="{{ $key_value }}" required/>
-                            </div>
-                            <div class="mt-4">
-                                <label class="block font-medium text-sm text-gray-700" for="select_type">
-                                    Select type
-                                </label>
-                                <select name="type" class="form-input rounded-md shadow-sm block mt-1 w-full" required
+
+                                <select name="type" class="form-input rounded-md shadow-sm block mt-1 meet-input" required
                                         id="select_type">
                                     <option>--Select Type--</option>
                                     <option value="1" {{ $selected_type == '1' ? 'selected' : '' }}>Name</option>
@@ -32,14 +25,14 @@
                                 </select>
                             </div>
                             <button type="submit"
-                                    class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 ml-4">
+                                    class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150 mt-2">
                                 Search
                             </button>
                             @if($key_value)
                                 <a href="{{ route('dashboard') }}">Reset</a>
                             @endif
                         </form>
-                        <table class="table table-bordered">
+                        <table class="table table-bordered mt-10">
                             <thead>
                             <tr>
                                 <th>Name</th>
