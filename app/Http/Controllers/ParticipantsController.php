@@ -101,8 +101,19 @@ class ParticipantsController extends Controller
     public function check_guests($g) {
         return $g > 2 ? false : true;
     }
-    public function dashboard() {
-        $participants = DB::table('participants')->paginate(10);
-        return view('dashboard', ['participants' => $participants]);
+    public function dashboard(Request $request) {
+        $key = $request->get('key');
+        $type = $request->get('type');
+
+        if(!empty($key) && !empty($type)) {
+            if($type == '1') {
+                $participants = DB::table('participants')->where('name', 'like', '%'.$key.'%')->paginate(20);
+            } else {
+                $participants = DB::table('participants')->where('locality', $key)->paginate(20);
+            }
+        } else {
+            $participants = DB::table('participants')->paginate(10);
+        }
+        return view('dashboard', ['participants' => $participants, 'key_value' => $key, 'selected_type' => $type]);
     }
 }
