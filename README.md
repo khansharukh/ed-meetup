@@ -14,7 +14,13 @@
 
 `Password: admin@123`
 
-To check API's
+**Note:** 
+
+If there is any issue with running the application, please `run` the below commands
+
+`npm install && npm run dev`
+
+**To check APIs**
 
 1. `GET: http://127.0.0.1:8000/participants`
 2. `POST: http://127.0.0.1:8000/participants`
@@ -24,7 +30,7 @@ Attaching screenshot for `POST` request
 <img src="read-post.png">
 
 
-Bulk edit for `POSTMAN`
+**Bulk edit for `POST` and `PUT` method in  `POSTMAN`**
 
 name:John
 
