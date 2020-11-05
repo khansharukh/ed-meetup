@@ -18,6 +18,8 @@
 
 If there is any issue with running the application, please `run` the below commands
 
+SQL file also added for ease of access
+
 `npm install && npm run dev`
 
 **To check APIs**
